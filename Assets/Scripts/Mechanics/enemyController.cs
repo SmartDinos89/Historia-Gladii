@@ -8,6 +8,8 @@ public class enemyController : MonoBehaviour
     public PlayerScript player;
     public SpriteRenderer sr;
     public PIngPOng pingPong;
+
+    public GameObject unlockable;
     public int health = 3;
     bool dead;
 
@@ -25,6 +27,10 @@ public class enemyController : MonoBehaviour
         animator.Play("EnemDed");   
         yield return new WaitForSeconds(.5f);
         Destroy(gameObject, 0);
+        Physics2D.IgnoreLayerCollision(6,7,false); 
+        if(unlockable != null){
+            unlockable.SetActive(true);
+        }
         }
     }
 
@@ -67,5 +73,6 @@ public class enemyController : MonoBehaviour
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length / 3);
         animator.Play("EnemRun");
         sr.color = new Color(255f, 255f, 255f, 1f);
+        Physics2D.IgnoreLayerCollision(6,7,false); 
     }
 }
