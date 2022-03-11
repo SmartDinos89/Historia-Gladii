@@ -34,7 +34,7 @@ public class Attack : MonoBehaviour
 
                     for (int i = 0; i < hitEnemies.Length; i++)
                     {
-                       hitEnemies[i].GetComponent<enemyController>().TakeDamage(1);
+                    StartCoroutine(hitEnemies[i].GetComponent<enemyController>().TakeDamage(1));
     
                     }
 

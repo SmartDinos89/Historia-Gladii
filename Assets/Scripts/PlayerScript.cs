@@ -178,18 +178,16 @@ public class PlayerScript : MonoBehaviour
 
 
     public IEnumerator die(){
-        rb2d.isKinematic = true;
         Dead = true;
         ChangeAnimationState(PLAYER_DEATH);
         yield return new WaitForSeconds(1f);
         Instantiate(Tomb, transform.position, transform.rotation);
         ui2.SetActive(false);
         blackScreen.SetActive(true);
-        rb2d.isKinematic = false;
         respawn.respawn();
         healthBar.SetHealth(maxHealth);
         currentHealth = maxHealth;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         blackScreen.SetActive(false);
         ui2.SetActive(true);
         Dead = false;

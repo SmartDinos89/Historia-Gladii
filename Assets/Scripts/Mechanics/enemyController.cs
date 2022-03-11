@@ -8,7 +8,6 @@ public class enemyController : MonoBehaviour
     public PlayerScript player;
     public SpriteRenderer sr;
     public PIngPOng pingPong;
-    public Rigidbody2D rb;
     public int health = 3;
     bool dead;
 
@@ -18,13 +17,12 @@ public class enemyController : MonoBehaviour
     }
     public IEnumerator Die(){
         if(gameObject != null){
-            rb.isKinematic = true;
             sr.color = new Color(255f, 0f, 0f, 1f);
         Physics2D.IgnoreLayerCollision(6,7,true); 
         yield return new WaitForSeconds(.6f);
-        animator.SetTrigger("hurt");
+        animator.Play("EnemHurt");
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length/3);
-        animator.SetTrigger("death");   
+        animator.Play("EnemDed");   
         yield return new WaitForSeconds(.5f);
         Destroy(gameObject, 0);
         }
@@ -49,7 +47,7 @@ public class enemyController : MonoBehaviour
         }
         }
         if(other.tag == "Arrow"){
-            TakeDamage(1);
+            StartCoroutine(TakeDamage(1));
         }
         }
     }
@@ -60,7 +58,14 @@ public class enemyController : MonoBehaviour
             pingPong.PingPong();
         }
         }
-    public void TakeDamage(int damage){
+    public IEnumerator TakeDamage(int damage){
         health -= 1;
+        sr.color = new Color(255f, 0f, 0f, 1f);
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+        yield return new WaitForSeconds(.6f);
+        animator.Play("EnemHurt");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length / 3);
+        animator.Play("EnemRun");
+        sr.color = new Color(255f, 255f, 255f, 1f);
     }
 }

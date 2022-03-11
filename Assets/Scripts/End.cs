@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
+    public int Scene;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player"){
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(Scene);
         }
     }
 }
