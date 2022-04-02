@@ -4,6 +4,6 @@ This is just a simple Unity 2d platformer game I have made.
 
 
 WebGl
-https://play.unity.com/mg/other/historia-gladii
+-NOT UPDATED-(https://play.unity.com/mg/other/historia-gladii)
 
 nice.
