@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //space Atatck key pressed?
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             isAttackPressed = true;
         }
@@ -103,11 +103,11 @@ public class PlayerScript : MonoBehaviour
         //Check update movement based on input
         Vector2 vel = new Vector2(0, rb2d.velocity.y);
 
-        if (xAxis < 0)
+        if (xAxis < 0 && !hurts && !Dead)
         {
             vel.x = -walkSpeed;
         }
-        else if (xAxis > 0)
+        else if (xAxis > 0 && !hurts && !Dead)
         {
             vel.x = walkSpeed;
             
@@ -164,15 +164,16 @@ public class PlayerScript : MonoBehaviour
         currentAnimaton = newAnimation;
     }
     private bool hurts = false;
-    public void TakeDamage(float damage)
+    public IEnumerator TakeDamage(float damage)
 	{
+        hurts = true;
 		currentHealth -= damage;
-
-        StartCoroutine(Iframe());
-
-		healthBar.SetHealth(currentHealth);
-
         ChangeAnimationState(PLAYER_HURT);
+        healthBar.SetHealth(currentHealth);
+        Physics2D.IgnoreLayerCollision(6,7,true);
+        yield return new WaitForSeconds(.8f);
+        Physics2D.IgnoreLayerCollision(6,7,false);
+        hurts = false;
 
 	}
 
@@ -181,7 +182,7 @@ public class PlayerScript : MonoBehaviour
         rb2d.isKinematic = true;
         Dead = true;
         ChangeAnimationState(PLAYER_DEATH);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         Instantiate(Tomb, transform.position, transform.rotation);
         ui2.SetActive(false);
         blackScreen.SetActive(true);
@@ -194,12 +195,6 @@ public class PlayerScript : MonoBehaviour
         ui2.SetActive(true);
         Dead = false;
 
-    }
-
-    IEnumerator Iframe(){
-        Physics2D.IgnoreLayerCollision(6,7,true);
-        yield return new WaitForSeconds(.7f);
-        Physics2D.IgnoreLayerCollision(6,7,false);
     }
 
     void Flip(){

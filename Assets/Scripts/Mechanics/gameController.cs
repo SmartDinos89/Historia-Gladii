@@ -5,11 +5,19 @@ using UnityEngine;
 public class gameController : MonoBehaviour
 {
     public GameObject ui;
+
+    public bool main;
     public GameObject ui2;
     private void Awake()
     {
-        Time.timeScale = 1;
+        if(main){
+        Time.timeScale = 0;
+        ui.SetActive(true);
         ui2.SetActive(true);
+        } else {
+            Time.timeScale = 1;
+            ui2.SetActive(true);
+        }
     }
     void Update()
     {

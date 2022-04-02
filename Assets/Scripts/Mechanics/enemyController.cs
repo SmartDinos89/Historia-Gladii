@@ -49,7 +49,7 @@ public class enemyController : MonoBehaviour
                 
             }
         }else {
-            player.TakeDamage(.5f);
+            StartCoroutine(player.TakeDamage(.5f));
         }
         }
         if(other.tag == "Arrow"){

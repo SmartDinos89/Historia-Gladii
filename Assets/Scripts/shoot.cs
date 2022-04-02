@@ -10,7 +10,6 @@ public class shoot : MonoBehaviour
     public GameObject bullet;
     public Text Arrows;
     public int arrowsNum;
-    private bool allowfire = true;
 
     // Update is called once per frame
     void Update()
@@ -23,12 +22,10 @@ public class shoot : MonoBehaviour
     IEnumerator Fire()
     {
         
-            allowfire = false;
             arrowsNum--;
             Arrows.text = arrowsNum.ToString();
             Instantiate(bullet, Shootpoint.position, Shootpoint.rotation);
             yield return new WaitForSeconds(.8f);
-            allowfire = true;
             
      
     }
