@@ -21,7 +21,7 @@ public class gameController : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetButtonDown("Cancel")){
+        if(Input.GetKeyDown(KeyCode.Tab)){
             if(ui.activeInHierarchy == false){
                 ui.SetActive(true);
                 Time.timeScale = 0;

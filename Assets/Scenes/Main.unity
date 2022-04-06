@@ -10012,8 +10012,8 @@ PrefabInstance:
       propertyPath: m_text
       value: "\nThe controls for this game are: \n\n- Arrow keys or A and D to Move\n-
         Space bar to Jump\n- Left Click or E to Swing your Sword\n- Right Click or
-        F to shoot arrows (Once you get them)\n\n- Press Escape to unpause and start
-        playing!"
+        F to shoot arrows (Once you get them)\n\n- Press Tab to unpause and start
+        playing!\n- Press Tab again to bring this men back."
       objectReference: {fileID: 0}
     - target: {fileID: 2550566963638454825, guid: 9a1bd12ebb35d4dc997aa0c5494eda9b,
         type: 3}
@@ -61220,7 +61220,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -69149,12 +69149,12 @@ PrefabInstance:
     - target: {fileID: 7734908528883681780, guid: 42ce2bdf067d2994493c58719ac8a6c9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.719112
+      value: -7.140223
       objectReference: {fileID: 0}
     - target: {fileID: 7734908528883681780, guid: 42ce2bdf067d2994493c58719ac8a6c9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5792732
+      value: 3.5108852
       objectReference: {fileID: 0}
     - target: {fileID: 7734908528883681780, guid: 42ce2bdf067d2994493c58719ac8a6c9,
         type: 3}
