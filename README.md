@@ -6,6 +6,6 @@ https://smartdinos89.itch.io/historia
 
 
 WebGl
--NOT UPDATED-(https://play.unity.com/mg/other/historia-gladii)
+<https://play.unity.com/mg/other/historia-gladii>
 
 nice.
