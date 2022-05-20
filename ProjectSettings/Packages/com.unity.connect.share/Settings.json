@@ -6,7 +6,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"/Users/codeninjasharrisburg/Desktop/Unity Projects/Simple-Platformer-main/WebGL Builds;/Users/codeninjasharrisburg/Desktop/Unity Projects/Simple-Platformer-main/Builds/WebGL/Historia-Gladii;/Users/codeninjasharrisburg/Desktop/Unity Builds/Historia Glorii/WebGl/Historia-Gladii;C:/Users/18064/Desktop/Unity Projects/Builds/WebGL;;;;;;\"}"
+                "value": "{\"m_Value\":\"/Users/codeninjasharrisburg/Desktop/Unity Projects/Simple-Platformer-main/WebGL Builds/Historia Gladii;/Users/codeninjasharrisburg/Desktop/Unity Projects/Simple-Platformer-main/WebGL Builds;/Users/codeninjasharrisburg/Desktop/Unity Projects/Simple-Platformer-main/Builds/WebGL/Historia-Gladii;/Users/codeninjasharrisburg/Desktop/Unity Builds/Historia Glorii/WebGl/Historia-Gladii;C:/Users/18064/Desktop/Unity Projects/Builds/WebGL;;;;;\"}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
