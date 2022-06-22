@@ -568,6 +568,7 @@ MonoBehaviour:
   black: {fileID: 160844599}
   start: {fileID: 948635942}
   quit: {fileID: 967012564}
+  lose: 0
   cont: {fileID: 1028207877}
 --- !u!114 &948635945
 MonoBehaviour:
@@ -786,6 +787,7 @@ MonoBehaviour:
   black: {fileID: 160844599}
   start: {fileID: 948635942}
   quit: {fileID: 967012564}
+  lose: 0
   cont: {fileID: 1028207877}
 --- !u!114 &967012567
 MonoBehaviour:
@@ -937,6 +939,7 @@ MonoBehaviour:
   black: {fileID: 160844599}
   start: {fileID: 1028207877}
   quit: {fileID: 967012564}
+  lose: 0
   cont: {fileID: 1028207877}
 --- !u!114 &1028207880
 MonoBehaviour:
@@ -1157,7 +1160,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1316401076
@@ -1642,7 +1645,7 @@ MonoBehaviour:
     be waiting for you at the end of your adventure to return to the surface and
     fulfill your mission.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7b50419dd5d254755b7929b05d413472, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1767,7 +1770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStart: 0
-  timeBtwChars: 0.05
+  timeBtwChars: 0.1
   leadingChar: '|'
   leadingCharBeforeDelay: 0
 --- !u!1 &1911114116

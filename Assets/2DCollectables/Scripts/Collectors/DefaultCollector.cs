@@ -15,7 +15,7 @@ using TMPro;
 
         public GameObject womanText;
         public GameObject end;
-        private void Start() {
+        private void Awake() {
             
         }
         public void OnTriggerEnter2D(Collider2D collider)
@@ -26,7 +26,7 @@ using TMPro;
             Destroy(collider.gameObject);
             } else if(collider.tag == "Heart"){
                 if(player.currentHealth < player.maxHealth){
-                    player.TakeDamage(-1);
+                    player.Heal(1);
             Destroy(collider.gameObject);
                 }
             }

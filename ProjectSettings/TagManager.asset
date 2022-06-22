@@ -12,6 +12,9 @@ TagManager:
   - Gem
   - Heart
   - Arrow
+  - Stair
+  - Key
+  - Canvas
   layers:
   - Default
   - TransparentFX

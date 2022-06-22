@@ -5,6 +5,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public GameObject item;
+    public GameObject Arrows;
     public Animator animator;
     public bool collected = false;
     Vector3 above; 
@@ -16,9 +17,11 @@ public class Chest : MonoBehaviour
     {
         if(collected == false){
         if(other.tag == "Player"){
+
             collected = true;
             animator.Play("Open");
             Instantiate(item, above, transform.rotation);
+            Arrows.SetActive(true); 
         }
         }
         

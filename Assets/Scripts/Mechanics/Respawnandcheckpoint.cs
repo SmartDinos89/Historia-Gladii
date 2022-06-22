@@ -19,24 +19,12 @@ public class Respawnandcheckpoint : MonoBehaviour
             respawnpoint = new Vector2(transform.position.x, transform.position.y + 2f);
         } else if(other.tag == "FallDetector") {
             if(player.Dead == false){
-                StartCoroutine(player.die());
+                StartCoroutine(player.TakeDamage(2f));
+                respawn();
             }
             
             
         } 
-    }
-
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Spike") {
-            if(player.currentHealth <= 0 ){
-                    if(player.Dead == false){
-                StartCoroutine(player.die());
-            }
-        }else {
-            player.TakeDamage(.5f);
-        }
-                
-        }
     }
 
     public void respawn(){

@@ -10,26 +10,28 @@ public class gameController : MonoBehaviour
     public GameObject ui2;
     private void Awake()
     {
-        if(main){
         Time.timeScale = 0;
         ui.SetActive(true);
-        ui2.SetActive(true);
-        } else {
-            Time.timeScale = 1;
-            ui2.SetActive(true);
-        }
+        ui2.SetActive(false);
+
     }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab)){
             if(ui.activeInHierarchy == false){
                 ui.SetActive(true);
+                ui2.SetActive(false);
                 Time.timeScale = 0;
             } else if(ui.activeInHierarchy){
-                ui.SetActive(false);
-                Time.timeScale = 1;
+                DisableUI();
             }
         }
+    }
+    public void DisableUI()
+    {
+    ui.SetActive(false);
+    ui2.SetActive(true);
+    Time.timeScale = 1;
     }
 
 }

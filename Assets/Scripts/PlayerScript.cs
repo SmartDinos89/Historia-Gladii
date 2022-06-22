@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PlayerScript : MonoBehaviour
     public float maxHealth = 100;
 	public float currentHealth;
 	public HealthBar healthBar;
+    private bool hurts = false;
 
     public GameObject Tomb;
     public Respawnandcheckpoint respawn;
@@ -55,14 +57,31 @@ public class PlayerScript : MonoBehaviour
     {
         currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
+        Dead = false;
 
     }
 
+    /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Spike"){
+            StartCoroutine(TakeDamage(1f));
+        }
+    }
     //=====================================================
     // Update is called once per frame
     //=====================================================
     void Update()
     {
+        if(currentHealth <= 0)
+        {
+            if(!Dead)
+            StartCoroutine(die());
+        }
         //Checking for inputs
         xAxis = Input.GetAxisRaw("Horizontal");
 
@@ -163,7 +182,7 @@ public class PlayerScript : MonoBehaviour
         animator.Play(newAnimation);
         currentAnimaton = newAnimation;
     }
-    private bool hurts = false;
+    
     public IEnumerator TakeDamage(float damage)
 	{
         hurts = true;
@@ -177,23 +196,16 @@ public class PlayerScript : MonoBehaviour
 
 	}
 
+    public void Heal(float healAmount){
+        currentHealth += healAmount;
+        healthBar.SetHealth(currentHealth);
+    }
+
 
     public IEnumerator die(){
-        rb2d.isKinematic = true;
         Dead = true;
-        ChangeAnimationState(PLAYER_DEATH);
-        yield return new WaitForSeconds(.5f);
-        Instantiate(Tomb, transform.position, transform.rotation);
-        ui2.SetActive(false);
-        blackScreen.SetActive(true);
-        rb2d.isKinematic = false;
-        respawn.respawn();
-        healthBar.SetHealth(maxHealth);
-        currentHealth = maxHealth;
-        yield return new WaitForSeconds(2f);
-        blackScreen.SetActive(false);
-        ui2.SetActive(true);
-        Dead = false;
+        yield return new WaitForSeconds(.1f);
+        SceneManager.LoadScene("Lose");
 
     }
 
